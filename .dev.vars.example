@@ -1,0 +1,3 @@
+# Copy to .dev.vars for local framework preview. Never commit real keys.
+STRIPE_SECRET_KEY=sk_test_replace_with_your_test_key
+STRIPE_WEBHOOK_SECRET=whsec_replace_with_your_test_webhook_secret

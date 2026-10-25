@@ -1,0 +1,4 @@
+const codes='GB US CA NG IE FR DE ES IT NL BE CH AU NZ AE ZA GH KE IN JP CN SG HK BR MX AR AT AL DZ AD AO AI AG AM AW AZ BS BH BD BB BY BZ BJ BM BT BO BA BW BN BG BF BI KH CM CV KY CF TD CL CO KM CG CD CR HR CY CZ DK DJ DM DO EC EG SV GQ ER EE SZ ET FJ FI GF PF GA GM GE GI GR GL GD GP GU GT GN GW GY HT HN HU IS ID IR IQ IL JM JO KZ KI KR KW KG LA LV LB LS LR LY LI LT LU MO MG MW MY MV ML MT MH MQ MR MU YT MD MC MN ME MS MA MZ MM NA NR NP NC NI NE NO OM PK PW PA PG PY PE PH PL PT PR QA RE RO RU RW KN LC VC WS SM ST SA SN RS SC SL SK SI SB SO SS LK SD SR SE SY TW TJ TZ TH TL TG TO TT TN TR TM TC TV UG UA UY UZ VU VA VE VN VG VI YE ZM ZW'.split(' ');
+const names=new Intl.DisplayNames(['en'],{type:'region'});
+export const countryName=code=>{try{return names.of(code)||code;}catch{return code;}};
+export const countries=[['GB','United Kingdom'],...codes.filter(c=>c!=='GB').map(c=>[c,countryName(c)]).sort((a,b)=>a[1].localeCompare(b[1]))];
