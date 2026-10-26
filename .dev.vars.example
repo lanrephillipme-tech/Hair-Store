@@ -1,3 +1,8 @@
 # Copy to .dev.vars for local framework preview. Never commit real keys.
 STRIPE_SECRET_KEY=sk_test_replace_with_your_test_key
 STRIPE_WEBHOOK_SECRET=whsec_replace_with_your_test_webhook_secret
+# Add through Sites runtime secrets only after enabling the OpenAI Developers integration.
+# OPENAI_API_KEY=replace_privately
+# OPENAI_MODEL=your_enabled_model
+# Comma-separated Site-specific authenticated user IDs allowed into /#/admin.
+# ADMIN_USER_IDS=replace_with_owner_site_user_id

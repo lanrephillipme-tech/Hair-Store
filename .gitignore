@@ -10,3 +10,7 @@ dist/
 .dev.vars.*
 !.dev.vars.example
 tmp/
+.next/
+.vinext/
+*.tsbuildinfo
+.local-data/

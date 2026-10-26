@@ -1,0 +1,12 @@
+# Generated image assets
+
+Four illustrative product/campaign photographs were generated for this preview. These are not supplied inventory photos. Final stock imagery, product specifications, and licensing must be confirmed by the store owner before live sales.
+
+| File | Brief |
+| --- | --- |
+| `public/assets/hero.png` | Premium hair campaign: adult Black woman with long glossy body waves, ivory top, dusty blush background. Landscape hero image, no text or logo. |
+| `public/assets/curly.png` | Long black deep-curly lace-front wig on a minimal beige display stand, warm ivory studio background. Square product image. |
+| `public/assets/straight.png` | Long straight black center-part lace-front wig on a minimal beige display stand, pale pink background. Square product image. |
+| `public/assets/bundles.png` | Three glossy dark body-wave extension bundles with visible wefts and dusty blush ribbons, warm ivory background. Square product image. |
+
+The four images are reused for relevant sample variants. `care.svg`, `satin.svg`, and `favicon.svg` are project SVG illustrations.

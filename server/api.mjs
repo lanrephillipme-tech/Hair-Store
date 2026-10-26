@@ -1,6 +1,7 @@
 import {findProduct,findService} from '../public/catalog.js';
 import {normalizeCart,unitPrice,totals,validAppointment} from '../public/commerce.js';
 import {countries} from '../public/countries.js';
+import {handleWorkspace} from './workspace.mjs';
 
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 const error=(message,status=400)=>json({error:message},status);
@@ -58,6 +59,7 @@ async function webhook(request,env){
   return json({received:true});
 }
 export async function handleApi(request,env){
+  const workspace=await handleWorkspace(request,env);if(workspace)return workspace;
   const url=new URL(request.url);const path=url.pathname;
   try{
     if(request.method==='GET'&&path==='/api/config')return json({stripeReady:testReady(env),mode:'test',baseCurrency:'GBP',webhookReady:!!env.STRIPE_WEBHOOK_SECRET});

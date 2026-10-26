@@ -1,0 +1,2 @@
+CREATE INDEX `messages_user_date` ON `support_messages` (`user_id`,`created_at`);--> statement-breakpoint
+CREATE UNIQUE INDEX `confirmed_session_slot` ON `virtual_bookings` (`date`,`time`) WHERE "virtual_bookings"."status" = 'confirmed';

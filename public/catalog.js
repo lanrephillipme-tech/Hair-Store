@@ -1,5 +1,5 @@
 export const store = { name: 'Hair Beauty Sore', currency: 'GBP', preview: true, freeShippingAt: 25000 };
-export const categories = ['All hair', 'Wigs', 'Bundles', 'Extensions', 'Hair care'];
+export const categories = ['All hair', 'Wigs', 'Bundles', 'Extensions', 'Closures & frontals', 'Hair care', 'Accessories'];
 export const products = [
   {id:'body-wave', name:'The Everyday Body Wave', category:'Wigs', texture:'Body wave', price:18900, image:'hero.png', imageClass:'portrait', tag:'THE EVERYDAY FAVORITE', description:'Soft, flowing waves with a natural-looking hairline. An effortless finish that moves with you, from your first coffee to your last plan.', options:['16 inch','18 inch','20 inch','22 inch'], increments:[0,2000,4000,6000], color:'Natural black', details:['Lace-front construction','Adjustable cap and combs','Natural black shade'], care:'Gently detangle from ends to roots. Wash with a mild shampoo, air dry on a stand, and use a heat protectant before styling.'},
   {id:'silk-press', name:'The Signature Straight', category:'Wigs', texture:'Straight', price:16900, image:'straight.png', tag:'SLEEK & SIMPLE', description:'A sleek center part and silky lengths for a look that always feels put together. Your shortcut to a beautifully polished finish.', options:['16 inch','18 inch','20 inch','22 inch'], increments:[0,2000,3500,5500], color:'Natural black', details:['Center-part lace front','Adjustable fit','Smooth, straight finish'], care:'Brush gently with a paddle brush. Store on a wig stand and apply a heat protectant before using styling tools.'},
@@ -15,5 +15,40 @@ export const services = [
   {id:'wash',name:'Wash, revive & style',price:4500,duration:'60 min',description:'A fresh start for well-loved hair, with a gentle wash and restyle.',icon:'droplet'},
   {id:'consult',name:'Find-your-hair consultation',price:2500,duration:'30 min',description:'Talk textures, lengths, and fit with a stylist. Available virtually.',icon:'chat'}
 ];
+// Demonstration catalogue: product photography is illustrative, stock and prices are samples.
+const additions = [
+  ['bob-wig','The City Bob','Wigs','Straight',12900,'straight.png',['10 inch','12 inch','14 inch'],[0,1500,3000],'A clean, shoulder-skimming silhouette for everyday styling.'],
+  ['glueless-wave','The Glueless Body Wave','Wigs','Body wave',22900,'hero.png',['18 inch','20 inch','22 inch'],[0,2500,5000],'An adjustable glueless fit with soft, flowing waves.'],
+  ['curly-fringe','The Curly Fringe','Wigs','Curly',15900,'curly.png',['12 inch','14 inch','16 inch'],[0,2000,4000],'A full curly silhouette with a face-framing fringe.'],
+  ['long-straight','The Extra-Length Straight','Wigs','Straight',28900,'straight.png',['24 inch','26 inch','28 inch'],[0,3000,6000],'Long, smooth lengths for a statement finish.'],
+  ['water-wave','The Weekend Water Wave','Wigs','Body wave',19900,'hero.png',['16 inch','18 inch','20 inch'],[0,2000,4000],'Loose waves and an adjustable cap for relaxed styling.'],
+  ['straight-bundles','Silky Straight Bundle Set','Bundles','Straight',13500,'bundles.png',['14 / 16 / 18 inch','16 / 18 / 20 inch','18 / 20 / 22 inch'],[0,2500,5000],'Three matching weft bundles for a smooth custom installation.'],
+  ['loose-wave-bundles','Loose Wave Bundle Set','Bundles','Body wave',16500,'bundles.png',['16 / 18 / 20 inch','18 / 20 / 22 inch'],[0,3000],'Three coordinated bundles with a softly waved finish.'],
+  ['single-bundle','Build-Your-Look Single Bundle','Bundles','Body wave',4900,'bundles.png',['16 inch','18 inch','20 inch'],[0,1000,2000],'One machine-weft bundle to build or refresh a custom style.'],
+  ['curly-clip-ins','Cloud Curl Clip-ins','Extensions','Curly',9900,'curly.png',['16 inch','18 inch','20 inch'],[0,1500,3000],'A removable clip-in set for fuller curly styling.'],
+  ['tape-ins','Signature Tape-in Set','Extensions','Straight',11500,'straight.png',['16 inch','18 inch','20 inch'],[0,2000,4000],'Straight tape-in extensions for professional installation.'],
+  ['wave-ponytail','Body Wave Wrap Ponytail','Extensions','Body wave',6500,'hero.png',['18 inch','22 inch'],[0,2000],'A wrap-around attachment for a full, flowing ponytail.'],
+  ['straight-ponytail','Sleek Wrap Ponytail','Extensions','Straight',5900,'straight.png',['18 inch','22 inch'],[0,2000],'A removable wrap ponytail with a smooth straight finish.'],
+  ['wave-closure','Body Wave Lace Closure','Closures & frontals','Body wave',6500,'bundles.png',['14 inch','16 inch','18 inch'],[0,1000,2000],'A 4 × 4 lace closure to complete a custom bundle installation.'],
+  ['straight-closure','Straight Lace Closure','Closures & frontals','Straight',5900,'straight.png',['14 inch','16 inch','18 inch'],[0,1000,2000],'A center-part lace closure for a coordinated straight style.'],
+  ['curly-frontal','Cloud Curl Lace Frontal','Closures & frontals','Curly',9500,'curly.png',['14 inch','16 inch','18 inch'],[0,1500,3000],'A 13 × 4 lace frontal for a curl-forward custom installation.'],
+  ['gentle-shampoo','Gentle Cleanse Shampoo','Hair care','Care',1600,'care.svg',['250 ml'],[0],'A gentle cleansing step for your hair-care routine.'],
+  ['leave-in','Everyday Leave-in Conditioner','Hair care','Care',1800,'care.svg',['150 ml'],[0],'Lightweight conditioning for detangling and everyday care.'],
+  ['finishing-oil','Soft Finish Hair Oil','Hair care','Care',1400,'care.svg',['50 ml'],[0],'A finishing oil for a simple after-styling routine.'],
+  ['satin-bonnet','Every-Night Satin Bonnet','Accessories','Care',1400,'satin.svg',['Blush','Midnight'],[0,0],'An adjustable satin bonnet for your overnight hair routine.'],
+  ['travel-pouch','The Hair Travel Pouch','Accessories','Care',1900,'satin.svg',['Blush','Midnight'],[0,0],'A soft storage pouch to keep your hair collection together on the go.']
+];
+for (const [id,name,category,texture,price,image,options,increments,description] of additions) {
+  const careProduct = category === 'Hair care';
+  const accessory = category === 'Accessories';
+  products.push({id,name,category,texture,price,image,options,increments,description,tag:careProduct?'CARE ESSENTIAL':accessory?'EVERYDAY ACCESSORY':'NEW IN STORE',color:careProduct?'Care essentials':accessory?'Satin finish':'Natural black',details:careProduct?['Sample product specification','Follow individual product directions','Final ingredients to be supplied before sale']:accessory?['Soft satin finish','Everyday storage and care','Hand wash recommended']:[`${texture} finish`,category === 'Bundles'?'Machine-weft construction':'Consult a stylist for fitting advice','Natural black shade'],care:careProduct?'Follow the product directions and patch test before use. Final ingredient information must be confirmed before purchase.':accessory?'Hand wash gently in cool water and air dry.':'Detangle gently from ends to roots. Wash with a mild shampoo, air dry, and use a heat protectant before styling.'});
+}
+export const collections = {
+  flash: ['body-wave','clip-ins','care-kit','wave-bundles','satin-set'],
+  featured: ['silk-press','deep-curl','glueless-wave','curl-bundles','tape-ins'],
+  newIn: ['bob-wig','water-wave','curly-clip-ins','wave-closure','gentle-shampoo','satin-bonnet'],
+  essentials: ['care-kit','leave-in','finishing-oil','satin-set']
+};
+export const catalogueNote = 'Sample catalogue and prices. Images illustrate the hair collection; final product specifications and stock will be confirmed before launch.';
 export const findProduct = id => products.find(p=>p.id===id);
 export const findService = id => services.find(s=>s.id===id);
