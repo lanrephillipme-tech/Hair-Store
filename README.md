@@ -32,6 +32,8 @@ The development server prints its local URL. For a local demo with customer/admi
 
 `render.yaml` provisions a free Node web service and a free PostgreSQL database. Connect this repository as a Render Blueprint; it installs only the lightweight `render/` package and serves the same storefront with database-backed accounts, messages, bookings, and order records. Render initializes `render/schema.sql` on startup. `/health` checks the database connection.
 
+An existing Render web service can also run the repository directly: `npm start` now launches the Node server. Set its build command to `npm ci` and its start command to `npm start`, and add the internal PostgreSQL `DATABASE_URL` environment variable. The old Cloudflare-specific command is retained as `npm run start:sites` for local Site development; it must not run on Render.
+
 Preview accounts have no email confirmation or password reset, so do not reuse an important password. The admin dashboard is protected by authenticated account ID. After creating the owner's account, set `ADMIN_USER_IDS` on the Render web service to that account ID, then redeploy; merely claiming an email address never grants admin access. The ID is shown on the admin access message. Set `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `OPENAI_API_KEY`, and `OPENAI_MODEL` in Render environment settings when ready. Leave payment and AI keys unset for a no-charge preview; checkout clearly reports that test payment is not yet configured.
 
 The free database has a limited lifetime; export records or upgrade before it expires. The free web service may sleep when idle. This is a demonstration deployment, with no live payments or fulfilment.
