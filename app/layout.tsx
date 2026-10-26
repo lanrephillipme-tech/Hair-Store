@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hair Beauty Sore — Hair, beautifully yours",
+  title: "Hair Beauty Store — Hair, beautifully yours",
   description: "UK hair store with wigs, bundles, hair services, and worldwide delivery. Stripe test checkout.",
   icons: {
     icon: "/favicon.svg",

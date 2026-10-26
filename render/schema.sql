@@ -1,0 +1,12 @@
+CREATE TABLE IF NOT EXISTS test_orders (id text PRIMARY KEY,token_hash text NOT NULL,checkout_key text NOT NULL UNIQUE,cart text NOT NULL,total integer NOT NULL,currency text NOT NULL,delivery text NOT NULL,country text NOT NULL,session_id text UNIQUE,status text NOT NULL DEFAULT 'pending',created_at text NOT NULL);
+CREATE TABLE IF NOT EXISTS payment_events (id text PRIMARY KEY,order_id text NOT NULL,created_at text NOT NULL);
+CREATE TABLE IF NOT EXISTS customer_profiles (user_id text PRIMARY KEY,name text NOT NULL,email text NOT NULL,phone text NOT NULL,created_at text NOT NULL);
+CREATE TABLE IF NOT EXISTS support_messages (id text PRIMARY KEY,user_id text NOT NULL,role text NOT NULL,body text NOT NULL,created_at text NOT NULL);
+CREATE INDEX IF NOT EXISTS messages_user_date ON support_messages(user_id,created_at);
+CREATE TABLE IF NOT EXISTS virtual_bookings (id text PRIMARY KEY,user_id text NOT NULL,date text NOT NULL,time text NOT NULL,notes text NOT NULL,status text NOT NULL,meeting_url text NOT NULL,created_at text NOT NULL);
+CREATE UNIQUE INDEX IF NOT EXISTS confirmed_session_slot ON virtual_bookings(date,time) WHERE status='confirmed';
+CREATE TABLE IF NOT EXISTS store_activity (id text PRIMARY KEY,user_id text NOT NULL,kind text NOT NULL,detail text NOT NULL,created_at text NOT NULL);
+CREATE TABLE IF NOT EXISTS order_fulfilment (order_id text PRIMARY KEY,status text NOT NULL,tracking text NOT NULL,updated_at text NOT NULL);
+CREATE TABLE IF NOT EXISTS auth_users (id text PRIMARY KEY,email text NOT NULL UNIQUE,password_hash text NOT NULL,created_at text NOT NULL);
+CREATE TABLE IF NOT EXISTS auth_sessions (token_hash text PRIMARY KEY,user_id text NOT NULL REFERENCES auth_users(id) ON DELETE CASCADE,expires_at text NOT NULL);
+CREATE INDEX IF NOT EXISTS auth_sessions_user ON auth_sessions(user_id);

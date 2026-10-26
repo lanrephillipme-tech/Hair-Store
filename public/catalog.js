@@ -1,4 +1,4 @@
-export const store = { name: 'Hair Beauty Sore', currency: 'GBP', preview: true, freeShippingAt: 25000 };
+export const store = { name: 'Hair Beauty Store', currency: 'GBP', preview: true, freeShippingAt: 25000 };
 export const categories = ['All hair', 'Wigs', 'Bundles', 'Extensions', 'Closures & frontals', 'Hair care', 'Accessories'];
 export const products = [
   {id:'body-wave', name:'The Everyday Body Wave', category:'Wigs', texture:'Body wave', price:18900, image:'hero.png', imageClass:'portrait', tag:'THE EVERYDAY FAVORITE', description:'Soft, flowing waves with a natural-looking hairline. An effortless finish that moves with you, from your first coffee to your last plan.', options:['16 inch','18 inch','20 inch','22 inch'], increments:[0,2000,4000,6000], color:'Natural black', details:['Lace-front construction','Adjustable cap and combs','Natural black shade'], care:'Gently detangle from ends to roots. Wash with a mild shampoo, air dry on a stand, and use a heat protectant before styling.'},

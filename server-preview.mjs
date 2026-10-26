@@ -26,4 +26,4 @@ http.createServer(async(req,res)=>{
   if(relative.startsWith('..')||path.isAbsolute(relative)||!fs.existsSync(file)||!fs.statSync(file).isFile()){res.writeHead(404);res.end('Not found');return;}
   res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream','X-Content-Type-Options':'nosniff','Cache-Control':'no-cache'});fs.createReadStream(file).pipe(res);
  }catch{res.writeHead(400);res.end('Bad request');}
-}).listen(port,'127.0.0.1',()=>console.log(`Hair Beauty Sore local demo: http://localhost:${port}`));
+}).listen(port,'127.0.0.1',()=>console.log(`Hair Beauty Store local demo: http://localhost:${port}`));
